@@ -491,7 +491,14 @@ Request.prototype._updateProtocol = function () {
   }
 }
 
-Request.prototype.getAgent = function () {
+Request.prototype.getAgent = function (){
+	var poolKey = this.host + ':' + this.port
+	poolKey = this.uri.protocol + poolKey
+	if (this.pool[poolKey]) return this.pool[poolKey]
+	return this.httpModule.globalAgent;
+}
+
+Request.prototype.getOldAgent = function () {
   var Agent = this.agentClass
   var options = {}
   if (this.agentOptions) {
