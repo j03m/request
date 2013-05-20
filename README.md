@@ -1,3 +1,6 @@
+(modifies request keep alive agent code - forked to https://github.com/omgpop/request for company ownership - use that repo instead)
+
+
 # Request -- Simplified HTTP request method
 
 ## Install
